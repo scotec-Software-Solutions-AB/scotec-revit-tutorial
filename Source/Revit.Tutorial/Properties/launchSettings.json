@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "BI.Revit.Info": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Program Files\\Autodesk\\Revit 2023\\Revit.exe",
+      "environmentVariables": {
+        "REVIT_ENVIRONMENT": "Development",
+        "REVIT_UTILITIESPATH": "C:\\Projects\\Boehringer\\BI.Revit.Utilities\\UtilSettings"
+      }
+    }
+  }
+}

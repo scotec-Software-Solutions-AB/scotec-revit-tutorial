@@ -1,0 +1,7 @@
+_ReSharper.Caches
+bin
+obj
+.vs
+*.user
+packages
+.vscode

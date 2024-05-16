@@ -1,0 +1,96 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net48</TargetFramework>
+		<ImplicitUsings>disable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+		<LangVersion>latest</LangVersion>
+		<PlatformTarget>x64</PlatformTarget>
+		<GenerateAssemblyInfo>True</GenerateAssemblyInfo>
+		<UseWpf>True</UseWpf>
+		<IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<Company>$(CompanyName)</Company>
+		<Copyright>$(Copyright)</Copyright>
+		<Description></Description>
+		<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+		<IsPublishable>True</IsPublishable>
+		<SignAssembly>False</SignAssembly>
+		<Title>BI.Revit.Info</Title>
+		<AssemblyVersion Condition="'$(AssemblyVersion)'==''">0.0.0.0</AssemblyVersion>
+		<FileVersion Condition="'$(FileVersion)'==''">0.0.0.0</FileVersion>
+		<InformationalVersion Condition="'$(InformationalVersion)'==''">0.0.0-dev</InformationalVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<NoWarn>1701;1702;MSB3277;</NoWarn>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<NoWarn>1701;1702;MSB3277;</NoWarn>
+	</PropertyGroup>
+
+
+	<ItemGroup>
+		<None Remove="appsettings.Development.json" />
+		<None Remove="appsettings.json" />
+		<None Remove="Resources\Images\Information_16.png" />
+		<None Remove="Resources\Images\Information_32.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="appsettings.Development.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="appsettings.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="Resources\Images\Information_16.png" />
+		<EmbeddedResource Include="Resources\Images\Information_32.png" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+		<PackageReference Include="ilmerge" Version="3.0.41" Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.1" />
+		<PackageReference Include="Nice3point.Revit.Api.AdWindows" Version="[2023.1.1,2024)" />
+		<PackageReference Include="Scotec.Extensions.Linq" Version="1.0.0" />
+		<PackageReference Include="Scotec.Extensions.Utilities" Version="1.0.0" />
+		<PackageReference Include="Scotec.ILMerge.MSBuild.Task" Version="1.0.1" Condition="'$(Configuration)'=='Release'">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>build</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Scotec.Revit" Version="2023.0.4-dev.3" />
+		<PackageReference Include="Semver" Version="2.3.0" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<Compile Update="Resources\StringResources.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>StringResources.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<EmbeddedResource Update="Resources\StringResources.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+			<LastGenOutput>StringResources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<Folder Include="Logic\" />
+	</ItemGroup>
+
+
+</Project>

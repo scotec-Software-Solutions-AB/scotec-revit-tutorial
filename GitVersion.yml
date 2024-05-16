@@ -1,0 +1,12 @@
+mode: ContinuousDelivery
+next-version: 1.0.0
+branches: 
+    main:
+        increment: Patch
+    develop:
+        increment: Patch
+        tag: dev
+ignore:
+  sha: []
+merge-message-formats: {}
+

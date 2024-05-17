@@ -9,7 +9,7 @@ using Scotec.Revit;
 
 namespace Revit.Tutorial.Commands;
 
-public class ShowInfoCommandAvailability : CommandAvailability
+public class TestCommandAvailability : CommandAvailability
 {
     protected override bool IsCommandAvailable(UIApplication applicationData, CategorySet selectedCategories,
                                                IServiceProvider services)

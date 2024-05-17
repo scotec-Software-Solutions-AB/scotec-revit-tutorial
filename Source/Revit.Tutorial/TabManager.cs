@@ -6,6 +6,7 @@ using System;
 using System.Linq;
 using Autodesk.Revit.UI;
 using Autodesk.Windows;
+using Revit.Tutorial.Resources;
 using RibbonPanel = Autodesk.Revit.UI.RibbonPanel;
 
 namespace Revit.Tutorial;
@@ -41,9 +42,9 @@ public class TabManager
 
     public static RibbonPanel GetPanel(UIControlledApplication application, string panelName, string tabName)
     {
-        var panel = application.GetRibbonPanels(tabName).FirstOrDefault(item => item.Name == panelName);
-
-        return panel;
+        return HasPanel(application, StringResources.Panel_Name, StringResources.Tab_Name) 
+            ? application.GetRibbonPanels(tabName).FirstOrDefault(item => item.Name == panelName) 
+            : CreatePanel(application, panelName, tabName);
     }
 
     public static bool HasPanel(UIControlledApplication application, string panelName, string tabName)

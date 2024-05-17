@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<Name>Revit Tutorial</Name>
+		<FullClassName>Revit.Tutorial.RevitTutorialApp</FullClassName>
+		<Assembly>.\Revit.Tutorial\Revit.Tutorial.dll</Assembly>
+		<AddInId>C58F0D46-D4E2-44FC-A0E1-48C5904AF877</AddInId>
+		<VendorId>SCOTEC</VendorId>
+		<VendorDescription>scotec Software Solutions AB</VendorDescription>
+	</AddIn>
+</RevitAddIns>

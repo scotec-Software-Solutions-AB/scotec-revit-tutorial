@@ -72,41 +72,32 @@ namespace Revit.Tutorial.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Test.
         /// </summary>
-        public static string Command_Info_Description {
+        public static string Command_Test_Description {
             get {
-                return ResourceManager.GetString("Command.Info.Description", resourceCulture);
+                return ResourceManager.GetString("Command.Test.Description", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Test.
         /// </summary>
-        public static string Command_Info_Name {
+        public static string Command_Test_Name {
             get {
-                return ResourceManager.GetString("Command_Info_Name", resourceCulture);
+                return ResourceManager.GetString("Command_Test_Name", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Test.
         /// </summary>
-        public static string Command_Info_Text {
+        public static string Command_Test_Text {
             get {
-                return ResourceManager.GetString("Command.Info.Text", resourceCulture);
+                return ResourceManager.GetString("Command.Test.Text", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Info.
-        /// </summary>
-        public static string Info_Title {
-            get {
-                return ResourceManager.GetString("Info.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Info.
+        ///   Looks up a localized string similar to Tutorial.
         /// </summary>
         public static string Panel_Name {
             get {
@@ -120,6 +111,15 @@ namespace Revit.Tutorial.Resources {
         public static string Tab_Name {
             get {
                 return ResourceManager.GetString("Tab.Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tutorial.
+        /// </summary>
+        public static string Window_Title {
+            get {
+                return ResourceManager.GetString("Window.Title", resourceCulture);
             }
         }
     }

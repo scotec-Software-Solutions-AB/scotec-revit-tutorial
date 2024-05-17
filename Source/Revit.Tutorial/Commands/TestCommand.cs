@@ -13,25 +13,25 @@ using Scotec.Revit;
 namespace Revit.Tutorial.Commands;
 
 [Transaction(TransactionMode.Manual)]
-public class ShowInfoCommand : RevitCommand
+public class TestCommand : RevitCommand
 {
-    public ShowInfoCommand()
+    public TestCommand()
     {
         NoTransaction = true;
     }
 
-    protected override string CommandName => StringResources.Command_Info_Name;
+    protected override string CommandName => StringResources.Command_Test_Name;
 
     protected override Result OnExecute(ExternalCommandData commandData, IServiceProvider services)
     {
-        ShowAddInInfo(services);
+        ShowTestWindow(services);
 
         return Result.Succeeded;
     }
 
-    private static void ShowAddInInfo(IServiceProvider services)
+    private static void ShowTestWindow(IServiceProvider services)
     {
-        var window = services.GetService<AddInInfoWindow>();
+        var window = services.GetService<TestWindow>();
 
         window.ShowDialog();
     }

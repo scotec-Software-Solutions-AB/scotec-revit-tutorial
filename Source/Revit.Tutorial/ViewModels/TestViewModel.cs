@@ -8,7 +8,7 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace Revit.Tutorial.ViewModels;
 
-internal class AddInInfoViewModel
+internal class TestViewModel
 {
     public ICommand CloseCommand { get; private set; }
 

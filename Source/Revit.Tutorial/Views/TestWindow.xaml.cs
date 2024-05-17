@@ -12,13 +12,13 @@ namespace Revit.Tutorial.Views;
 /// <summary>
 ///     Interaction logic for AddInInfosWindow.xaml
 /// </summary>
-internal partial class AddInInfoWindow : RevitWindow
+internal partial class TestWindow : RevitWindow
 {
-    public AddInInfoWindow(UIApplication revitApplication, AddInInfoViewModel viewModel) : base(revitApplication)
+    public TestWindow(UIApplication revitApplication, TestViewModel viewModel) : base(revitApplication)
     {
         HideMinimizeAndMaximizeButtons();
         InitializeComponent();
-        Title = StringResources.Info_Title;
+        Title = StringResources.Window_Title;
 
         viewModel.SetCloseDelegate(Close);
         DataContext = viewModel;

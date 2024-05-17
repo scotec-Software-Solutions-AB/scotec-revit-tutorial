@@ -16,29 +16,23 @@ using Scotec.Revit;
 
 namespace Revit.Tutorial;
 
-public class RevitInfoApp : RevitApp
+public class RevitTutorialApp : RevitApp
 {
     protected override Result OnStartup()
     {
-        // OnStartUp() for this add-in is different to the OnStartUp() of all other add-ins.
-        // The info add-in must always be loaded, event if the version is wrong. Otherwise we can not open the info dialog.
-        // Therefore we don't check the return values of base.OnStartUp() and CanLoadAddIn().
         try
         {
-            //var bundleValidator = Services.GetService<YourService>();
+            // var yourService = Services.GetService<YourService>();
 
-            if (!TabManager.HasTab(StringResources.Tab_Name))
-            {
-                TabManager.CreateTab(Application, StringResources.Tab_Name);
-            }
+            // Create tabs, panels ond buttons
+            TabManager.CreateTab(Application, StringResources.Tab_Name);
 
-            var panel = TabManager.HasPanel(Application, StringResources.Panel_Name, StringResources.Tab_Name)
-                ? TabManager.GetPanel(Application, StringResources.Panel_Name, StringResources.Tab_Name)
-                : TabManager.CreatePanel(Application, StringResources.Panel_Name, StringResources.Tab_Name);
+            var panel = TabManager.GetPanel(Application, StringResources.Panel_Name, StringResources.Tab_Name);
 
-            var button = (PushButton)panel.AddItem(CreateButtonData("Scotec.Revit.Tutorial",
-                StringResources.Command_Info_Text, StringResources.Command_Info_Description,
-                typeof(ShowInfoCommand)));
+            var button = (PushButton)panel.AddItem(CreateButtonData("Revit.Tutorial",
+                StringResources.Command_Test_Text, StringResources.Command_Test_Description,
+                typeof(TestCommand)));
+
             button.Enabled = true;
         }
         catch (Exception)
@@ -53,9 +47,15 @@ public class RevitInfoApp : RevitApp
     {
         base.OnConfigure(builder);
 
-        builder.ConfigureContainer<ContainerBuilder>(containerBuilder => containerBuilder
-                                                                         .RegisterModule<ViewModelModule>()
-                                                                         .RegisterModule<ViewModule>());
+        // Register services by using Autofac modules.
+        builder.ConfigureContainer<ContainerBuilder>(containerBuilder => containerBuilder.RegisterModule<RegistrationModule>());
+
+        builder.ConfigureServices(services =>
+        {
+            // You can also register services here.
+            // However, using Autofac modules gives you more flexibility.
+        });
+
     }
 
     protected override Result OnShutdown()
@@ -71,13 +71,13 @@ public class RevitInfoApp : RevitApp
             Image = CreateImageSource("Information_16.png"),
             LargeImage = CreateImageSource("Information_32.png"),
             ToolTip = description,
-            AvailabilityClassName = typeof(ShowInfoCommandAvailability).FullName
+            AvailabilityClassName = typeof(TestCommandAvailability).FullName
         };
     }
 
     private static ImageSource CreateImageSource(string image)
     {
-        var resourcePath = $"BI.Revit.Info.Resources.Images.{image}";
+        var resourcePath = $"Revit.Tutorial.Resources.Images.{image}";
 
         var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourcePath);
         if (stream == null)

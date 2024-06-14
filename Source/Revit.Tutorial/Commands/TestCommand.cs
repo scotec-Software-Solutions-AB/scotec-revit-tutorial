@@ -3,7 +3,11 @@
 // This file is licensed to you under the MIT license.
 
 using System;
+using System.IO;
+using System.Linq;
+using System.Reflection;
 using Autodesk.Revit.Attributes;
+using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Microsoft.Extensions.DependencyInjection;
 using Revit.Tutorial.Resources;
@@ -36,3 +40,23 @@ public class TestCommand : RevitCommand
         window.ShowDialog();
     }
 }
+
+[Transaction(TransactionMode.Manual)]
+public class TestCommandFactory : IExternalCommand
+{
+    private readonly IExternalCommand _instance;
+
+    public TestCommandFactory()
+    {
+        var assembly = RevitTutorialAppFactory.Context.LoadFromAssemblyPath(typeof(TestCommandFactory).Assembly.Location);
+        var types = assembly.GetTypes();
+        var t = types.First(type => type.Name == "TestCommand");
+        _instance = (IExternalCommand)Activator.CreateInstance(t);
+    }
+
+    public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
+    {
+        return _instance.Execute(commandData, ref message, elements);
+    }
+}
+

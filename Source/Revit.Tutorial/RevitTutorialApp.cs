@@ -33,7 +33,7 @@ public class RevitTutorialApp : RevitApp
 
             var button = (PushButton)panel.AddItem(CreateButtonData("Revit.Tutorial",
                 StringResources.Command_Test_Text, StringResources.Command_Test_Description,
-                typeof(TestCommand)));
+                typeof(TestCommandFactory)));
 
             button.Enabled = true;
         }
@@ -73,7 +73,7 @@ public class RevitTutorialApp : RevitApp
             Image = CreateImageSource("Information_16.png"),
             LargeImage = CreateImageSource("Information_32.png"),
             ToolTip = description,
-            AvailabilityClassName = typeof(TestCommandAvailability).FullName
+            //AvailabilityClassName = typeof(TestCommandAvailability).FullName
         };
     }
 

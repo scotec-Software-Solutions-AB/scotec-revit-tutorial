@@ -3,6 +3,8 @@
 // This file is licensed to you under the MIT license.
 
 using System;
+using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -90,3 +92,39 @@ public class RevitTutorialApp : RevitApp
         return decoder.Frames[0];
     }
 }
+
+public class RevitTutorialAppFactory : IExternalApplication
+{
+    public static AddinLoadContext Context { get; }
+    private IExternalApplication _instance;
+    private static Assembly s_assembly;
+
+    static RevitTutorialAppFactory()
+    {
+        var path = Path.GetDirectoryName(typeof(RevitTutorialAppFactory).Assembly.Location)!;
+
+        Context = new AddinLoadContext(path);
+        s_assembly = Context.LoadFromAssemblyPath(typeof(RevitTutorialAppFactory).Assembly.Location);
+
+    }
+
+
+    public RevitTutorialAppFactory()
+    {
+        var types = s_assembly.GetTypes();
+        var t = types.First(type => type.Name == "RevitTutorialApp");
+        _instance = (IExternalApplication)Activator.CreateInstance(t);
+    }
+
+    public Result OnStartup(UIControlledApplication application)
+    {
+        return _instance.OnStartup(application);
+    }
+
+    public Result OnShutdown(UIControlledApplication application)
+    {
+        return _instance.OnShutdown(application);
+    }
+}
+
+

@@ -42,8 +42,8 @@ public class TabManager
 
     public static RibbonPanel GetPanel(UIControlledApplication application, string panelName, string tabName)
     {
-        return HasPanel(application, StringResources.Panel_Name, StringResources.Tab_Name) 
-            ? application.GetRibbonPanels(tabName).FirstOrDefault(item => item.Name == panelName) 
+        return HasPanel(application, StringResources.Panel_Name, StringResources.Tab_Name)
+            ? application.GetRibbonPanels(tabName).FirstOrDefault(item => item.Name == panelName)
             : CreatePanel(application, panelName, tabName);
     }
 

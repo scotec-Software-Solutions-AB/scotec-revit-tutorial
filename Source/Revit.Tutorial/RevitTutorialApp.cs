@@ -16,6 +16,7 @@ using Scotec.Revit;
 
 namespace Revit.Tutorial;
 
+[RevitApp]
 public class RevitTutorialApp : RevitApp
 {
     protected override Result OnStartup()
@@ -31,7 +32,7 @@ public class RevitTutorialApp : RevitApp
 
             var button = (PushButton)panel.AddItem(CreateButtonData("Revit.Tutorial",
                 StringResources.Command_Test_Text, StringResources.Command_Test_Description,
-                typeof(TestCommand)));
+                typeof(TestCommandFactory)));
 
             button.Enabled = true;
         }
@@ -55,7 +56,6 @@ public class RevitTutorialApp : RevitApp
             // You can also register services here.
             // However, using Autofac modules gives you more flexibility.
         });
-
     }
 
     protected override Result OnShutdown()
@@ -71,7 +71,7 @@ public class RevitTutorialApp : RevitApp
             Image = CreateImageSource("Information_16.png"),
             LargeImage = CreateImageSource("Information_32.png"),
             ToolTip = description,
-            AvailabilityClassName = typeof(TestCommandAvailability).FullName
+            AvailabilityClassName = typeof(TestCommandAvailabilityFactory).FullName
         };
     }
 

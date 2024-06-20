@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net48</TargetFramework>
+		<TargetFramework>net8.0-windows</TargetFramework>
 		<ImplicitUsings>disable</ImplicitUsings>
 		<Nullable>disable</Nullable>
 		<LangVersion>latest</LangVersion>
@@ -9,6 +9,7 @@
 		<GenerateAssemblyInfo>True</GenerateAssemblyInfo>
 		<UseWpf>True</UseWpf>
 		<IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 	</PropertyGroup>
 
 	<PropertyGroup>
@@ -18,10 +19,12 @@
 		<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
 		<IsPublishable>True</IsPublishable>
 		<SignAssembly>False</SignAssembly>
-		<Title>BI.Revit.Info</Title>
+		<Title>Revit.Tutorial</Title>
 		<AssemblyVersion Condition="'$(AssemblyVersion)'==''">0.0.0.0</AssemblyVersion>
 		<FileVersion Condition="'$(FileVersion)'==''">0.0.0.0</FileVersion>
 		<InformationalVersion Condition="'$(InformationalVersion)'==''">0.0.0-dev</InformationalVersion>
+		<ProduceReferenceAssembly>False</ProduceReferenceAssembly>
+		<SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -58,16 +61,12 @@
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
 		<PackageReference Include="ilmerge" Version="3.0.41" Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'" />
-		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.1" />
-		<PackageReference Include="Nice3point.Revit.Api.AdWindows" Version="[2023.1.1,2024)" />
-		<PackageReference Include="Scotec.Extensions.Linq" Version="1.0.0" />
-		<PackageReference Include="Scotec.Extensions.Utilities" Version="1.0.0" />
+		<PackageReference Include="Nice3point.Revit.Api.AdWindows" Version="2025.0.2" />
 		<PackageReference Include="Scotec.ILMerge.MSBuild.Task" Version="1.0.1" Condition="'$(Configuration)'=='Release'">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>build</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Scotec.Revit" Version="2024.0.0-dev.2" />
-		<PackageReference Include="Semver" Version="2.3.0" />
+		<PackageReference Include="Scotec.Revit" Version="2025.0.0-dev.23" />
 	</ItemGroup>
 
 

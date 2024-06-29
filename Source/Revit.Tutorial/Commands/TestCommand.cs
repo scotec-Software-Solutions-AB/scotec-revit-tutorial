@@ -12,7 +12,7 @@ using Scotec.Revit;
 
 namespace Revit.Tutorial.Commands;
 
-[RevitCommand]
+[RevitCommandContext]
 [Transaction(TransactionMode.Manual)]
 public class TestCommand : RevitCommand
 {

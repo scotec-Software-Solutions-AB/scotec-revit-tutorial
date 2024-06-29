@@ -67,7 +67,7 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>build</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Scotec.Revit" Version="2025.0.1" />
+		<PackageReference Include="Scotec.Revit" Version="2025.0.2" />
 	</ItemGroup>
 
 

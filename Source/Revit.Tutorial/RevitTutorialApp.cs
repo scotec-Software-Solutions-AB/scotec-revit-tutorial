@@ -16,7 +16,7 @@ using Scotec.Revit;
 
 namespace Revit.Tutorial;
 
-[RevitApplicationContext]
+[RevitApplicationIsolation]
 public class RevitTutorialApp : RevitApp
 {
     protected override Result OnStartup()

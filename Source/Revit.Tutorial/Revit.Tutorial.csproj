@@ -27,15 +27,6 @@
 		<SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<NoWarn>1701;1702;MSB3277;</NoWarn>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-		<NoWarn>1701;1702;MSB3277;</NoWarn>
-	</PropertyGroup>
-
-
 	<ItemGroup>
 		<None Remove="appsettings.Development.json" />
 		<None Remove="appsettings.json" />
@@ -57,19 +48,11 @@
 		<EmbeddedResource Include="Resources\Images\Information_32.png" />
 	</ItemGroup>
 
-
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
-		<PackageReference Include="ilmerge" Version="3.0.41" Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'" />
 		<PackageReference Include="Nice3point.Revit.Api.AdWindows" Version="2025.0.2" />
-		<PackageReference Include="Nice3point.Revit.Api.RevitAPI" Version="2025.0.2" />
-		<PackageReference Include="Scotec.ILMerge.MSBuild.Task" Version="1.0.1" Condition="'$(Configuration)'=='Release'">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>build</IncludeAssets>
-		</PackageReference>
-		<PackageReference Include="Scotec.Revit" Version="2025.0.2" />
+		<PackageReference Include="Scotec.Revit.Wpf" Version="2025.0.3" />
 	</ItemGroup>
-
 
 	<ItemGroup>
 		<Compile Update="Resources\StringResources.Designer.cs">
@@ -79,13 +62,11 @@
 		</Compile>
 	</ItemGroup>
 
-
 	<ItemGroup>
 		<EmbeddedResource Update="Resources\StringResources.resx">
 			<Generator>PublicResXFileCodeGenerator</Generator>
 			<LastGenOutput>StringResources.Designer.cs</LastGenOutput>
 		</EmbeddedResource>
 	</ItemGroup>
-
 
 </Project>

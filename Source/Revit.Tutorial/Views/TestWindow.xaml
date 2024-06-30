@@ -1,4 +1,4 @@
-﻿<revit:RevitWindow x:Class="Revit.Tutorial.Views.TestWindow"
+﻿<wpf:RevitWindow x:Class="Revit.Tutorial.Views.TestWindow"
                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,6 +6,7 @@
                    xmlns:revit="clr-namespace:Scotec.Revit;assembly=Scotec.Revit"
                    xmlns:viewModels="clr-namespace:Revit.Tutorial.ViewModels"
                    xmlns:resources="clr-namespace:Revit.Tutorial.Resources"
+                   xmlns:wpf="clr-namespace:Scotec.Revit.Wpf;assembly=Scotec.Revit.Wpf"
                    x:ClassModifier="internal"
                    mc:Ignorable="d"
                    Height="600" Width="800"
@@ -14,8 +15,7 @@
                    ShowInTaskbar="False"
                    WindowStartupLocation="CenterOwner"
                    WindowState="Normal"
-                   WindowStyle="SingleBorderWindow"
-                   d:DataContext="{d:DesignInstance Type=viewModels:AddInInfoViewModel, IsDesignTimeCreatable=False}">
+                   WindowStyle="SingleBorderWindow">
 
     <Window.Resources>
 
@@ -42,4 +42,4 @@
 
 
     </Grid>
-</revit:RevitWindow>
+</wpf:RevitWindow>

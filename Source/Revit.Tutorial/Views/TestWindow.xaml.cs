@@ -5,7 +5,7 @@
 using Autodesk.Revit.UI;
 using Revit.Tutorial.Resources;
 using Revit.Tutorial.ViewModels;
-using Scotec.Revit;
+using Scotec.Revit.Wpf;
 
 namespace Revit.Tutorial.Views;
 

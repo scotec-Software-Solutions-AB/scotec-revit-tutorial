@@ -50,8 +50,8 @@
 
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
-		<PackageReference Include="Nice3point.Revit.Api.AdWindows" Version="2025.0.2" />
-		<PackageReference Include="Scotec.Revit.Wpf" Version="2025.0.3" />
+		<PackageReference Include="Nice3point.Revit.Api.AdWindows" Version="2025.1.0" />
+		<PackageReference Include="Scotec.Revit.Wpf" Version="2025.0.4-dev.13" />
 	</ItemGroup>
 
 	<ItemGroup>

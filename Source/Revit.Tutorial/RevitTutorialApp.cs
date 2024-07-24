@@ -19,7 +19,7 @@ namespace Revit.Tutorial;
 [Scotec.Revit.Isolation.RevitApplicationIsolation]
 public class RevitTutorialApp : RevitApp
 {
-    protected override Result OnStartup()
+    protected override bool OnStartup()
     {
         try
         {
@@ -38,10 +38,10 @@ public class RevitTutorialApp : RevitApp
         }
         catch (Exception)
         {
-            return Result.Failed;
+            return false;
         }
 
-        return Result.Succeeded;
+        return true;
     }
 
     protected override void OnConfigure(IHostBuilder builder)
@@ -58,9 +58,9 @@ public class RevitTutorialApp : RevitApp
         });
     }
 
-    protected override Result OnShutdown()
+    protected override bool OnShutdown()
     {
-        return Result.Succeeded;
+        return true;
     }
 
     private static PushButtonData CreateButtonData(string name, string text, string description, Type commandType)

@@ -34,6 +34,15 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="{Binding Path=DefaultContextName, FallbackValue='#DefaultContextName'}"></TextBlock>
+            <TextBlock Grid.Row="1" Text="{Binding Path=ContextName, FallbackValue='#ContextName'}"></TextBlock>
+        </Grid>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal">
             <Button Content="{x:Static resources:StringResources.Button_Close}"

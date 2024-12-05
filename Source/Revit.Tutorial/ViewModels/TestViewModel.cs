@@ -3,6 +3,7 @@
 // This file is licensed to you under the MIT license.
 
 using System;
+using System.Runtime.Loader;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
 
@@ -16,4 +17,7 @@ internal class TestViewModel
     {
         CloseCommand = new RelayCommand(closeDelegate);
     }
+
+    public string DefaultContextName => AssemblyLoadContext.Default.ToString();
+    public string ContextName => AssemblyLoadContext.GetLoadContext(GetType().Assembly)?.ToString();
 }
